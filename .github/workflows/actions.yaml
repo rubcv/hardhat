@@ -12,20 +12,18 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.19.1
-    # - name: Cache node-modules
-    #   id: cache-node-modules
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: node_modules
-    #     key: node_modules-${{ hashFiles('package-lock.json') }}
+    - name: Cache node-modules
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node_modules-${{ hashFiles('package-lock.json') }}
     - name: Install dependencies
-    #   if: steps.cache-node-modules.outputs.cache-hit != 'true'
-      run: npm ci && yarn add solidity-coverage
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      run: npm ci
     - name: Solidity code formatter
       run: npm run prettier
     - name: Solidity linting
       run: npm run lint
     - name: Run tests
       run: npm run tests
-    - name: Tests coverage
-      run: npm run coverage
