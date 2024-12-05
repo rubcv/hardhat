@@ -1,2 +1,1 @@
-# hardhat
-Hardhat pipeline for CI/CD Smart Contract testing.
+# Hardhat pipeline for CI/CD Smart Contract testing.
