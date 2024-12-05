@@ -20,7 +20,7 @@ jobs:
         key: node_modules-${{ hashFiles('package-lock.json') }}
     - name: Install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm ci && yarn install
     - name: Solidity code formatter
       run: npm run prettier
     - name: Solidity linting
