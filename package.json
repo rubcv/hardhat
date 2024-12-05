@@ -2,16 +2,19 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.17"
+    "hardhat": "^2.22.17",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "prettier": "^3.4.2",
     "prettier-plugin-solidity": "^1.4.1",
-    "solhint": "^5.0.3"
+    "solhint": "^5.0.3",
+    "solidity-coverage": "^0.8.14"
   },
   "scripts": {
     "lint": "npx solhint 'contracts/**/*.sol'",
-    "prettier" : "npx prettier --write --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
-    "tests": "npx hardhat test"
+    "prettier": "npx prettier --write --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
+    "tests": "npx hardhat test",
+    "coverage": "npx hardhat coverage"
   }
 }
