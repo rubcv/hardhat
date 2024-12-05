@@ -21,7 +21,9 @@ jobs:
     - name: Install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       run: npm ci
+    - name: Solidity code formatter
+      run: npm run prettier
     - name: Solidity linting
-      run: npx solhint 'contracts/**/*.sol'
+      run: npm run lint
     - name: Run tests
-      run: npx hardhat test
+      run: npm run tests
